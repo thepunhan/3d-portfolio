@@ -108,6 +108,9 @@
   },
 
   "experience": {
+    "title": "Professional Work Experience",
+    "subtitle": "💼 My Career Overview",
+    "responsibilitiesLabel": "Responsibilities",
     "expCards": [
       {
         "review": "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
