@@ -195,6 +195,21 @@
   },
 
   "contact": {
+     "title": "Get in Touch – Let's Connect",
+    "subtitle": "💬 Have questions or ideas? Let's talk! 🚀",
+    "form": {
+      "nameLabel": "Your name",
+      "namePlaceholder": "What's your good name?",
+      "emailLabel": "Your Email",
+      "emailPlaceholder": "What's your email address?",
+      "messageLabel": "Your Message",
+      "messagePlaceholder": "How can I help you?",
+      "submitButton": "Send Message",
+      "sendingButton": "Sending..."
+    },
+    "social": {
+      "followText": "Follow me on"
+    }
     "socialImgs": [
       { "name": "insta", "imgPath": "/images/insta.png" },
       { "name": "fb", "imgPath": "/images/fb.png" },
