@@ -5,10 +5,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { expCards } from "../constants";
 import TitleHeader from "../components/TitleHeader";
 import GlowCard from "../components/GlowCard";
+import content from "../content/en.json"; // JSON'u import ediyoruz
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
+  // JSON'dan experience bölümünü alıyoruz
+  const { experience } = content;
+
   useGSAP(() => {
     // Loop through each timeline card and animate them in
     // as the user scrolls to each card
@@ -95,9 +99,10 @@ const Experience = () => {
       className="flex-center md:mt-40 mt-20 section-padding xl:px-0"
     >
       <div className="w-full h-full md:px-20 px-5">
+        {/* TitleHeader artık JSON'dan veri alıyor */}
         <TitleHeader
-          title="Professional Work Experience"
-          sub="💼 My Career Overview"
+          title={experience.title}
+          sub={experience.subtitle}
         />
         <div className="mt-32 relative">
           <div className="relative z-50 xl:space-y-32 space-y-10">
@@ -125,8 +130,9 @@ const Experience = () => {
                         <p className="my-5 text-white-50">
                           🗓️&nbsp;{card.date}
                         </p>
+                        {/* Responsibilities label artık JSON'dan */}
                         <p className="text-[#839CB5] italic">
-                          Responsibilities
+                          {experience.responsibilitiesLabel}
                         </p>
                         <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
                           {card.responsibilities.map(
