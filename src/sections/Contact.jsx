@@ -4,6 +4,9 @@ import emailjs from "@emailjs/browser";
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/contact/ContactExperience";
 
+// JSON dosyasını import ediyoruz
+import content from "../content/tr.json";
+
 const Contact = () => {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
@@ -12,6 +15,9 @@ const Contact = () => {
     email: "",
     message: "",
   });
+
+  // JSON'dan contact bölümünü alıyoruz
+  const { contact } = content;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,9 +48,10 @@ const Contact = () => {
   return (
     <section id="contact" className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
+        {/* TitleHeader artık JSON'dan veri alıyor */}
         <TitleHeader
-          title="Get in Touch – Let’s Connect"
-          sub="💬 Have questions or ideas? Let’s talk! 🚀"
+          title={contact.title}
+          sub={contact.subtitle}
         />
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5">
@@ -55,39 +62,42 @@ const Contact = () => {
                 className="w-full flex flex-col gap-7"
               >
                 <div>
-                  <label htmlFor="name">Your name</label>
+                  {/* Label ve placeholder JSON'dan */}
+                  <label htmlFor="name">{contact.form.nameLabel}</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="What’s your good name?"
+                    placeholder={contact.form.namePlaceholder}
                     required
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email">Your Email</label>
+                  {/* Label ve placeholder JSON'dan */}
+                  <label htmlFor="email">{contact.form.emailLabel}</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="What’s your email address?"
+                    placeholder={contact.form.emailPlaceholder}
                     required
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message">Your Message</label>
+                  {/* Label ve placeholder JSON'dan */}
+                  <label htmlFor="message">{contact.form.messageLabel}</label>
                   <textarea
                     id="message"
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="How can I help you?"
+                    placeholder={contact.form.messagePlaceholder}
                     rows="5"
                     required
                   />
@@ -96,8 +106,9 @@ const Contact = () => {
                 <button type="submit">
                   <div className="cta-button group">
                     <div className="bg-circle" />
+                    {/* Buton metni JSON'dan, loading durumuna göre */}
                     <p className="text">
-                      {loading ? "Sending..." : "Send Message"}
+                      {loading ? contact.form.sendingButton : contact.form.submitButton}
                     </p>
                     <div className="arrow-wrapper">
                       <img src="/images/arrow-down.svg" alt="arrow" />
