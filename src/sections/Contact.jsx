@@ -5,7 +5,7 @@ import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/contact/ContactExperience";
 
 // JSON dosyasını import ediyoruz
-import content from "../content/tr.json";
+import content from "../content/en.json";
 
 const Contact = () => {
   const formRef = useRef(null);
